@@ -1,0 +1,42 @@
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.exe.config
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.exe
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.pdb
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.AssemblyReference.cache
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.Properties.Resources.resources
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.GenerateResource.cache
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.CoreCompileInputs.cache
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.exe
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.pdb
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\bin\Debug\Oracle.DataAccess.dll
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.Form1.resources
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.CopyComplete
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.FormProduct.resources
+D:\BELTEI\Year 3\Semester 1\Oracle\Homework\ConnnectToOracle2\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.components.AddProductForm.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.exe.config
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.exe
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.pdb
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\bin\Debug\Oracle.DataAccess.dll
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.AssemblyReference.cache
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.components.AddProductForm.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.Form1.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.FormProduct.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.Properties.Resources.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.GenerateResource.cache
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.CoreCompileInputs.cache
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.CopyComplete
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.exe
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToSqlServer\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.pdb
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.exe.config
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.exe
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\bin\Debug\ConnnectToOracle2.pdb
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\bin\Debug\Oracle.DataAccess.dll
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.AssemblyReference.cache
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.components.AddProductForm.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.Form1.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.FormProduct.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.Properties.Resources.resources
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.GenerateResource.cache
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.CoreCompileInputs.cache
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.csproj.CopyComplete
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.exe
+D:\BELTEI\Year 3\Semester 1\OOP C#\Project\ConnnectToOracle2\obj\Debug\ConnnectToOracle2.pdb
