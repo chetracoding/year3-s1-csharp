@@ -14,32 +14,32 @@ namespace ConnnectToSql2
             string sql = "SELECT st.student_id, st.student_code, st.first_name, st.last_name, st.date_of_birth, st.place_of_birth" +
                 ", st.phone, se.label sex_label, se.sex_id FROM students st LEFT JOIN sexes se ON se.sex_id = st.fk_sex_id ORDER BY st.student_id DESC";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
-            var reader = cmd.ExecuteReader();
 
             try
             {
-                while (reader.Read())
+                using (var reader = cmd.ExecuteReader())
                 {
-                    students.Add(new Student
+                    while (reader.Read())
                     {
-                        StudentId = reader.GetInt32(0),
-                        StudentCode = reader.GetString(1),
-                        FirstName = reader.GetString(2),
-                        LastName = reader.GetString(3),
-                        DateOfBirth = reader.GetDateTime(4),
-                        PlaceOfBirth = reader.GetString(5),
-                        PhoneNumber = reader.GetString(6),
-                        SexLabel = reader.GetString(7),
-                        SexId = reader.GetInt32(8)
-                    });
+                        students.Add(new Student
+                        {
+                            StudentId = reader.GetInt32(0),
+                            StudentCode = reader.GetString(1),
+                            FirstName = reader.GetString(2),
+                            LastName = reader.GetString(3),
+                            DateOfBirth = reader.GetDateTime(4),
+                            PlaceOfBirth = reader.GetString(5),
+                            PhoneNumber = reader.GetString(6),
+                            SexLabel = reader.GetString(7),
+                            SexId = reader.GetInt32(8)
+                        });
+                    }
                 }
-                reader.Close();
 
                 return students;
             }
             catch (Exception ex)
             {
-                reader.Close();
                 MessageBox.Show("Something went wrong​ while getting students: " + ex.Message);
             }
 
@@ -53,14 +53,14 @@ namespace ConnnectToSql2
 
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@code", code);
-            var reader = cmd.ExecuteReader();
 
             try
             {
-                bool isExisted = reader.HasRows;
-                reader.Close();
-
-                return isExisted;
+                using(var reader = cmd.ExecuteReader())
+                {
+                    bool isExisted = reader.HasRows;
+                    return isExisted;
+                }
             }
             catch (Exception ex)
             {

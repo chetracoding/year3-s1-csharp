@@ -12,26 +12,26 @@ namespace ConnnectToSql2
             var sexes = new List<Sex>();
             string sql = "SELECT sex_id, label, disabled FROM sexes WHERE disabled=0";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
-            var reader = cmd.ExecuteReader();
 
             try
             {
-                while (reader.Read())
+                using (var reader = cmd.ExecuteReader())
                 {
-                    sexes.Add(new Sex
+                    while (reader.Read())
                     {
-                        SexId = reader.GetInt32(0),
-                        Label = reader.GetString(1),
-                        Disabled = reader.GetBoolean(2)
-                    });
+                        sexes.Add(new Sex
+                        {
+                            SexId = reader.GetInt32(0),
+                            Label = reader.GetString(1),
+                            Disabled = reader.GetBoolean(2)
+                        });
+                    }
                 }
-                reader.Close();
 
                 return sexes;
             }
             catch (Exception ex)
             {
-                reader.Close();
                 MessageBox.Show("Something went wrong​ while getting sexes: " + ex.Message);
             }
 
