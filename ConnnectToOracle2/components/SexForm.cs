@@ -15,9 +15,9 @@ namespace ConnnectToSql2
         }
 
         // Road sex
-        private void LoadSex()
+        private void LoadSex(string keyword = "")
         {
-            sexes = objSex.GetSexes();
+            sexes = objSex.GetSexes(keyword);
             dgvSex.DataSource = sexes;
 
             LabelTotalCount.Text = $"Total records: {dgvSex.RowCount}";
@@ -28,6 +28,7 @@ namespace ConnnectToSql2
         {
             TextBoxId.Clear();
             TextBoxLabel.Clear();
+            TextBoxSearch.Clear();
         }
 
         // Save (Update or create sex)
@@ -80,7 +81,7 @@ namespace ConnnectToSql2
         // Refresh
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
-            LoadSex();
+            LoadSex(TextBoxSearch.Text);
         }
 
         // Close
@@ -139,6 +140,12 @@ namespace ConnnectToSql2
 
             TextBoxId.Text = sex.SexId.ToString();
             TextBoxLabel.Text = sex.Label;
+        }
+
+        // Search for sexes
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadSex(TextBoxSearch.Text);
         }
     }
 }

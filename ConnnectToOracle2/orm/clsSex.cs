@@ -7,11 +7,12 @@ namespace ConnnectToSql2
 {
     internal class clsSex
     {
-        public List<Sex> GetSexes()
+        public List<Sex> GetSexes(string keyword = "")
         {
             var sexes = new List<Sex>();
-            string sql = "SELECT sex_id, label, disabled FROM sexes WHERE disabled=0";
+            string sql = "SELECT sex_id, label, disabled FROM sexes WHERE disabled=0 AND (sex_id LIKE @keyword OR label LIKE @keyword)";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
+            cmd.Parameters.AddWithValue("keyword", $"%{keyword}%");
 
             try
             {

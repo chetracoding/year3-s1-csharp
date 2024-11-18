@@ -19,9 +19,9 @@ namespace ConnnectToSql2
         }
 
         // Road students
-        private void LoadStudent()
+        private void LoadStudent(string keyword = "")
         {
-            students = objStudent.GetStudents();
+            students = objStudent.GetStudents(keyword);
             dgvStudent.DataSource = students;
 
             LabelTotalCount.Text = $"Total records: {dgvStudent.RowCount}";
@@ -48,6 +48,7 @@ namespace ConnnectToSql2
             TextBoxLName.Clear();
             TextBoxPBirth.Clear();
             TextBoxPhone.Clear();
+            TextBoxSearch.Clear();
             ComboBoxGender.SelectedIndex = -1;
         }
 
@@ -239,8 +240,14 @@ namespace ConnnectToSql2
         // Refresh
         private void button1_Click_1(object sender, EventArgs e)
         {
-            LoadStudent();
+            LoadStudent(TextBoxSearch.Text);
             LoadSex();
+        }
+
+        // Search for students
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadStudent(TextBoxSearch.Text);
         }
     }
 }

@@ -8,12 +8,15 @@ namespace ConnnectToSql2
 {
     internal class clsStudent
     {
-        public List<Student> GetStudents()
+        public List<Student> GetStudents(string keyword = "")
         {
             var students = new List<Student>();
-            string sql = "SELECT st.student_id, st.student_code, st.first_name, st.last_name, st.date_of_birth, st.place_of_birth" +
-                ", st.phone, se.label sex_label, se.sex_id FROM students st LEFT JOIN sexes se ON se.sex_id = st.fk_sex_id ORDER BY st.student_id DESC";
+            string sql = "SELECT st.student_id, st.student_code, st.first_name, st.last_name, st.date_of_birth, st.place_of_birth, " +
+                "st.phone, se.label sex_label, se.sex_id FROM students st LEFT JOIN sexes se ON se.sex_id = st.fk_sex_id " +
+                "WHERE st.student_id LIKE @keyword OR st.student_code LIKE @keyword OR st.first_name LIKE @keyword OR st.last_name LIKE @keyword " +
+                "ORDER BY st.student_id DESC";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
+            cmd.Parameters.AddWithValue("keyword", $"%{keyword}%");
 
             try
             {

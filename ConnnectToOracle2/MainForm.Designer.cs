@@ -54,6 +54,8 @@
             this.SexBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.TextBoxSearch = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -81,12 +83,12 @@
             this.dgvStudent.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvStudent.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudent.Location = new System.Drawing.Point(15, 303);
+            this.dgvStudent.Location = new System.Drawing.Point(15, 356);
             this.dgvStudent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.RowTemplate.Height = 24;
-            this.dgvStudent.Size = new System.Drawing.Size(1062, 395);
+            this.dgvStudent.Size = new System.Drawing.Size(1062, 342);
             this.dgvStudent.TabIndex = 1;
             this.dgvStudent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellDoubleClick);
             // 
@@ -126,6 +128,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.TextBoxSearch);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.TextBoxId);
             this.groupBox1.Controls.Add(this.datePickerOfBirth);
@@ -363,6 +367,27 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // TextBoxSearch
+            // 
+            this.TextBoxSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxSearch.Location = new System.Drawing.Point(15, 317);
+            this.TextBoxSearch.Name = "TextBoxSearch";
+            this.TextBoxSearch.Size = new System.Drawing.Size(514, 32);
+            this.TextBoxSearch.TabIndex = 31;
+            this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 296);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(149, 18);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Search for students...";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -411,6 +436,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TextBoxId;
         private System.Windows.Forms.Button SexBtn;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox TextBoxSearch;
     }
 }
 

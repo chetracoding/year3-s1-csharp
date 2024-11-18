@@ -41,6 +41,8 @@
             this.LabelTotalCount = new System.Windows.Forms.Label();
             this.dgvSex = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TextBoxSearch = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSex)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -184,17 +186,19 @@
             this.dgvSex.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvSex.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
             this.dgvSex.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSex.Location = new System.Drawing.Point(15, 117);
+            this.dgvSex.Location = new System.Drawing.Point(15, 165);
             this.dgvSex.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvSex.Name = "dgvSex";
             this.dgvSex.RowHeadersWidth = 51;
             this.dgvSex.RowTemplate.Height = 24;
-            this.dgvSex.Size = new System.Drawing.Size(1062, 390);
+            this.dgvSex.Size = new System.Drawing.Size(1062, 342);
             this.dgvSex.TabIndex = 1;
             this.dgvSex.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSex_CellDoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.TextBoxSearch);
             this.groupBox1.Controls.Add(this.dgvSex);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.TextBoxId);
@@ -207,6 +211,27 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sex mangement";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 105);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(132, 18);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Search for sexes...";
+            // 
+            // TextBoxSearch
+            // 
+            this.TextBoxSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxSearch.Location = new System.Drawing.Point(15, 126);
+            this.TextBoxSearch.Name = "TextBoxSearch";
+            this.TextBoxSearch.Size = new System.Drawing.Size(514, 32);
+            this.TextBoxSearch.TabIndex = 33;
+            this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
             // 
             // SexForm
             // 
@@ -240,5 +265,7 @@
         private System.Windows.Forms.Label LabelTotalCount;
         private System.Windows.Forms.DataGridView dgvSex;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox TextBoxSearch;
     }
 }
