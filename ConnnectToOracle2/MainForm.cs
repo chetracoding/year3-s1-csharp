@@ -1,8 +1,6 @@
 ﻿using ConnnectToOracle2;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ConnnectToSql2
@@ -11,31 +9,33 @@ namespace ConnnectToSql2
     {
         clsStudent objStudent = new clsStudent();
         clsSex objSex = new clsSex();
+
         List<Student> students;
-        DataTable sexes;
+        List<Sex> sexes;
 
         public MainForm()
         {
             InitializeComponent();
         }
 
-        // Road student
+        // Road students
         private void LoadStudent()
         {
             students = objStudent.GetStudents();
-
             dgvStudent.DataSource = students;
+
             LabelTotalCount.Text = $"Total records: {dgvStudent.RowCount}";
         }
 
-        // Road sex
+        // Road sexes
         private void LoadSex()
         {
             sexes = objSex.GetSexes();
             ComboBoxGender.Items.Clear();
-            for (int i = 0; i < sexes.Rows.Count; i++)
+
+            foreach (var sex in sexes)
             {
-                ComboBoxGender.Items.Add(sexes.Rows[i]["Label"].ToString());
+                ComboBoxGender.Items.Add(sex.Label);
             }
         }
 
@@ -62,7 +62,7 @@ namespace ConnnectToSql2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Connection fail: " + ex.Message);
+                MessageBox.Show("SQL connection fail: " + ex.Message);
             }
         }
 
@@ -96,19 +96,13 @@ namespace ConnnectToSql2
                 MessageBox.Show("Please enter phone number");
                 return;
             }
-
-            if (string.IsNullOrEmpty(ComboBoxGender.Text) || ComboBoxGender.SelectedIndex == -1)
+            if (string.IsNullOrEmpty(ComboBoxGender.Text) || ComboBoxGender.SelectedIndex < 0)
             {
                 MessageBox.Show("Please select sex");
                 return;
             } else
             {
-                isInvalidField = int.TryParse(sexes.Rows[ComboBoxGender.SelectedIndex]["Sex_Id"].ToString(), out sexId);
-                if (!isInvalidField)
-                {
-                    MessageBox.Show("Please select sex");
-                    return;
-                }
+                sexId = sexes[ComboBoxGender.SelectedIndex].SexId;
             }
 
             isInvalidField = string.IsNullOrEmpty(datePickerOfBirth.Text);
@@ -128,30 +122,24 @@ namespace ConnnectToSql2
             {
                 int studentId;
                 bool isUpdated = int.TryParse(TextBoxId.Text, out studentId);
+                Student student = new Student
+                    {
+                        StudentId = studentId,
+                        StudentCode = TextBoxCode.Text,
+                        FirstName = TextBoxFName.Text,
+                        LastName = TextBoxLName.Text,
+                        SexId = sexId,
+                        DateOfBirth = datePickerOfBirth.Value,
+                        PlaceOfBirth = TextBoxPBirth.Text,
+                        PhoneNumber = TextBoxPhone.Text
+                    };
 
                 if (isUpdated)
                 {
-                    objStudent.UpdateStudentById(
-                        studentId,
-                        TextBoxCode.Text,
-                        TextBoxFName.Text,
-                        TextBoxLName.Text,
-                        sexId,
-                        datePickerOfBirth.Text,
-                        TextBoxPBirth.Text,
-                        TextBoxPhone.Text
-                    );
+                    objStudent.UpdateStudentById(student);
                 } else
                 {
-                    objStudent.InsertStudent(
-                        TextBoxCode.Text,
-                        TextBoxFName.Text,
-                        TextBoxLName.Text,
-                        sexId,
-                        datePickerOfBirth.Text,
-                        TextBoxPBirth.Text,
-                        TextBoxPhone.Text
-                    );
+                    objStudent.InsertStudent(student);
                 }
 
                 ClearForm();
@@ -209,32 +197,24 @@ namespace ConnnectToSql2
             if (e.RowIndex < 0) return;
             
             int studentId = int.Parse(dgvStudent.Rows[e.RowIndex].Cells[0].Value.ToString());
-            DataRow[] student = students.Find(s => s.Field<int>("StudentId") == studentId);
+            Student student = students.Find(s => s.StudentId == studentId);
 
-            int fkSexId;
-            bool isNoEmptySex = int.TryParse(student[0]["Fk_Sex_Id"].ToString(), out fkSexId);
-            if (isNoEmptySex)
-            {
-                DataRow[] sex = sexes.Select($" Sex_Id = {fkSexId}");
-                if (sex.Length > 0)
-                {
-                    ComboBoxGender.SelectedIndex = sexes.Rows.IndexOf(sex[0]);
-                } else
-                {
-                    ComboBoxGender.SelectedIndex = -1;
-                }
-            } else
+            int sexIndex = sexes.FindIndex(s => s.SexId == student.SexId);
+            if (sexIndex < 0)
             {
                 ComboBoxGender.SelectedIndex = -1;
+            } else
+            {
+                ComboBoxGender.SelectedIndex = sexIndex;
             }
 
-            TextBoxId.Text = student[0]["Student_Id"].ToString();
-            TextBoxCode.Text = student[0]["Student_Code"].ToString();
-            TextBoxFName.Text = student[0]["First_Name"].ToString();
-            TextBoxLName.Text = student[0]["Last_Name"].ToString();
-            TextBoxPhone.Text = student[0]["Phone"].ToString();
-            TextBoxPBirth.Text = student[0]["Place_Of_Birth"].ToString();
-            datePickerOfBirth.Text = student[0]["Date_Of_Birth"].ToString();
+            TextBoxId.Text = student.StudentId.ToString();
+            TextBoxCode.Text = student.StudentCode;
+            TextBoxFName.Text = student.FirstName;
+            TextBoxLName.Text = student.LastName;
+            TextBoxPhone.Text = student.PhoneNumber;
+            TextBoxPBirth.Text = student.PlaceOfBirth;
+            datePickerOfBirth.Text = student.DateOfBirth.ToString();
         }
 
         // Clear
@@ -247,12 +227,6 @@ namespace ConnnectToSql2
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        // Search student
-        private void textBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-            LoadStudent();
         }
 
         // Open sex form

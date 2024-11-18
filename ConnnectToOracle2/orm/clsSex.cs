@@ -1,33 +1,41 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Data;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ConnnectToSql2
 {
     internal class clsSex
     {
-        public int SexId { get; set; }
-        public string Label { get; set; }
-        public bool Disabled { get; set; }
-
-        public DataTable GetSexes()
+        public List<Sex> GetSexes()
         {
-            DataTable dt = new DataTable();
-            string sql = "SELECT sex_id, label FROM sexes WHERE disabled=0";
+            var sexes = new List<Sex>();
+            string sql = "SELECT sex_id, label, disabled FROM sexes WHERE disabled=0";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            var reader = cmd.ExecuteReader();
 
             try
             {
-                da.Fill(dt);
+                while (reader.Read())
+                {
+                    sexes.Add(new Sex
+                    {
+                        SexId = reader.GetInt32(0),
+                        Label = reader.GetString(1),
+                        Disabled = reader.GetBoolean(2)
+                    });
+                }
+                reader.Close();
+
+                return sexes;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong​ while getting: " + ex.Message);
+                reader.Close();
+                MessageBox.Show("Something went wrong​ while getting sexes: " + ex.Message);
             }
 
-            return dt;
+            return sexes;
         }
 
         public void InsertSex(string label)

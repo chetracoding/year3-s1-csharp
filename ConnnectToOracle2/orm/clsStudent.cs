@@ -1,7 +1,6 @@
 ﻿using ConnnectToOracle2;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -27,18 +26,21 @@ namespace ConnnectToSql2
                         StudentCode = reader.GetString(1),
                         FirstName = reader.GetString(2),
                         LastName = reader.GetString(3),
-                        DateOfBirth = reader.GetString(4),
+                        DateOfBirth = reader.GetDateTime(4),
                         PlaceOfBirth = reader.GetString(5),
                         PhoneNumber = reader.GetString(6),
                         SexLabel = reader.GetString(7),
                         SexId = reader.GetInt32(8)
                     });
                 }
+                reader.Close();
+
                 return students;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong​ while getting: " + ex.Message);
+                reader.Close();
+                MessageBox.Show("Something went wrong​ while getting students: " + ex.Message);
             }
 
             return students;
@@ -51,7 +53,7 @@ namespace ConnnectToSql2
 
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@code", code);
-            SqlDataReader reader = cmd.ExecuteReader();
+            var reader = cmd.ExecuteReader();
 
             try
             {
@@ -62,14 +64,14 @@ namespace ConnnectToSql2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong​ while getting: " + ex.Message);
+                MessageBox.Show("Something went wrong​ while finding: " + ex.Message);
             }
             return false;
         }
 
-        public void InsertStudent(string code, string fName, string lName, int sexId, string dOfBirth, string pOfBirth, string phone)
+        public void InsertStudent(Student student)
         {
-            bool isStudentExisted = FindStudentByCode(code);
+            bool isStudentExisted = FindStudentByCode(student.StudentCode);
             if (isStudentExisted)
             {
                 throw new CustomException("Student code is already existed");
@@ -80,13 +82,13 @@ namespace ConnnectToSql2
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
 
             // Add parameters with values
-            cmd.Parameters.AddWithValue("@code", code);
-            cmd.Parameters.AddWithValue("@fName", fName);
-            cmd.Parameters.AddWithValue("@lName", lName);
-            cmd.Parameters.AddWithValue("@sexId", sexId);
-            cmd.Parameters.AddWithValue("@dOfBirth", dOfBirth);
-            cmd.Parameters.AddWithValue("@pOfBirth", pOfBirth);
-            cmd.Parameters.AddWithValue("@phone", phone);
+            cmd.Parameters.AddWithValue("@code", student.StudentCode);
+            cmd.Parameters.AddWithValue("@fName", student.FirstName);
+            cmd.Parameters.AddWithValue("@lName", student.LastName);
+            cmd.Parameters.AddWithValue("@sexId", student.SexId);
+            cmd.Parameters.AddWithValue("@dOfBirth", student.DateOfBirth);
+            cmd.Parameters.AddWithValue("@pOfBirth", student.PlaceOfBirth);
+            cmd.Parameters.AddWithValue("@phone", student.PhoneNumber);
 
             try
             {
@@ -97,9 +99,9 @@ namespace ConnnectToSql2
             }
         }
 
-        public void UpdateStudentById(int id, string code, string fName, string lName, int sexId, string dOfBirth, string pOfBirth, string phone)
+        public void UpdateStudentById(Student student)
         {
-            bool isStudentExisted = FindStudentByCode(code, id);
+            bool isStudentExisted = FindStudentByCode(student.StudentCode, student.StudentId);
             if (isStudentExisted)
             {
                 throw new CustomException("Student code is already existed");
@@ -110,14 +112,14 @@ namespace ConnnectToSql2
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
 
             // Add parameters with values
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@code", code);
-            cmd.Parameters.AddWithValue("@fName", fName);
-            cmd.Parameters.AddWithValue("@lName", lName);
-            cmd.Parameters.AddWithValue("@sexId", sexId);
-            cmd.Parameters.AddWithValue("@dOfBirth", dOfBirth);
-            cmd.Parameters.AddWithValue("@pOfBirth", pOfBirth);
-            cmd.Parameters.AddWithValue("@phone", phone);
+            cmd.Parameters.AddWithValue("@id", student.StudentId);
+            cmd.Parameters.AddWithValue("@code", student.StudentCode);
+            cmd.Parameters.AddWithValue("@fName", student.FirstName);
+            cmd.Parameters.AddWithValue("@lName", student.LastName);
+            cmd.Parameters.AddWithValue("@sexId", student.SexId);
+            cmd.Parameters.AddWithValue("@dOfBirth", student.DateOfBirth);
+            cmd.Parameters.AddWithValue("@pOfBirth", student.PlaceOfBirth);
+            cmd.Parameters.AddWithValue("@phone", student.PhoneNumber);
 
             try
             {

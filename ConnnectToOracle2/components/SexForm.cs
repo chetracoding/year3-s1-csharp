@@ -1,6 +1,5 @@
-﻿using ConnnectToSql2;
-using System;
-using System.Data;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ConnnectToSql2
@@ -8,7 +7,7 @@ namespace ConnnectToSql2
     public partial class SexForm : Form
     {
         clsSex objSex = new clsSex();
-        DataTable sexes;
+        List<Sex> sexes;
 
         public SexForm()
         {
@@ -19,9 +18,9 @@ namespace ConnnectToSql2
         private void LoadSex()
         {
             sexes = objSex.GetSexes();
-
             dgvSex.DataSource = sexes;
-            LabelTotalCount.Text = $"Total records: {sexes.Rows.Count}";
+
+            LabelTotalCount.Text = $"Total records: {dgvSex.RowCount}";
         }
 
         // Clear form
@@ -135,11 +134,11 @@ namespace ConnnectToSql2
         {
             if (e.RowIndex < 0) return;
 
-            string sexId = dgvSex.Rows[e.RowIndex].Cells[0].Value.ToString();
-            DataRow[] sex = sexes.Select($" Sex_Id = {sexId}");
+            int sexId = int.Parse(dgvSex.Rows[e.RowIndex].Cells[0].Value.ToString());
+            Sex sex = sexes.Find(s => s.SexId == sexId);
 
-            TextBoxId.Text = sex[0]["Sex_Id"].ToString();
-            TextBoxLabel.Text = sex[0]["Label"].ToString();
+            TextBoxId.Text = sex.SexId.ToString();
+            TextBoxLabel.Text = sex.Label;
         }
     }
 }
