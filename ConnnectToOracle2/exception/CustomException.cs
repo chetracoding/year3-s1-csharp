@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConnnectToOracle2
+namespace ConnnectToSql2
 {
     internal class CustomException : Exception
     {

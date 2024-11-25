@@ -153,7 +153,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1095, 730);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Regirstation mangement";
+            this.groupBox1.Text = "Student regirstation mangement";
             // 
             // label9
             // 

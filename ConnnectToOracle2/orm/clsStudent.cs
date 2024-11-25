@@ -1,5 +1,4 @@
-﻿using ConnnectToOracle2;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -148,7 +147,7 @@ namespace ConnnectToSql2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong​ while updating: " + ex.Message);
+                MessageBox.Show("Something went wrong​ while deleting: " + ex.Message);
             }
             return false;
         }

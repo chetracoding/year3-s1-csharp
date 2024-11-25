@@ -1,5 +1,4 @@
-﻿using ConnnectToOracle2;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -163,8 +162,8 @@ namespace ConnnectToSql2
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             int studentId;
-            bool isSuccess = int.TryParse(TextBoxId.Text, out studentId);
-            if (!isSuccess)
+            bool isRowSelected = int.TryParse(TextBoxId.Text, out studentId);
+            if (!isRowSelected)
             {
                 MessageBox.Show("Please double click student row first!");
                 return;
