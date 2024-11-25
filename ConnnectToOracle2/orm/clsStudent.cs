@@ -148,7 +148,7 @@ namespace ConnnectToSql2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong​ while inserting: " + ex.Message);
+                MessageBox.Show("Something went wrong​ while updating: " + ex.Message);
             }
             return false;
         }

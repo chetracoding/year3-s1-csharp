@@ -48,16 +48,19 @@ namespace ConnnectToSql2
                 int sexId;
                 bool isUpdated = int.TryParse(TextBoxId.Text, out sexId);
 
+                Sex sex = new Sex
+                {
+                    SexId = sexId,
+                    Label = TextBoxLabel.Text
+                };
+
                 if (isUpdated)
                 {
-                    objSex.UpdateSexbyId(
-                        sexId,
-                        TextBoxLabel.Text
-                    );
+                    objSex.UpdateSexById(sex);
                 }
                 else
                 {
-                    objSex.InsertSex(TextBoxLabel.Text);
+                    objSex.InsertSex(sex);
                 }
 
                 ClearForm();

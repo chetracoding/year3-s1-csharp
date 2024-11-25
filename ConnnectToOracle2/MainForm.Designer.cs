@@ -34,6 +34,8 @@
             this.LabelTotalCount = new System.Windows.Forms.Label();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TextBoxSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TextBoxId = new System.Windows.Forms.TextBox();
             this.datePickerOfBirth = new System.Windows.Forms.DateTimePicker();
@@ -54,8 +56,6 @@
             this.SexBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.TextBoxSearch = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -153,7 +153,28 @@
             this.groupBox1.Size = new System.Drawing.Size(1095, 730);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Student mangement";
+            this.groupBox1.Text = "Regirstation mangement";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 296);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(149, 18);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Search for students...";
+            // 
+            // TextBoxSearch
+            // 
+            this.TextBoxSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxSearch.Location = new System.Drawing.Point(15, 317);
+            this.TextBoxSearch.Name = "TextBoxSearch";
+            this.TextBoxSearch.Size = new System.Drawing.Size(514, 32);
+            this.TextBoxSearch.TabIndex = 31;
+            this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
             // 
             // label8
             // 
@@ -366,27 +387,6 @@
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // TextBoxSearch
-            // 
-            this.TextBoxSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.TextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxSearch.Location = new System.Drawing.Point(15, 317);
-            this.TextBoxSearch.Name = "TextBoxSearch";
-            this.TextBoxSearch.Size = new System.Drawing.Size(514, 32);
-            this.TextBoxSearch.TabIndex = 31;
-            this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 296);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(149, 18);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Search for students...";
             // 
             // MainForm
             // 

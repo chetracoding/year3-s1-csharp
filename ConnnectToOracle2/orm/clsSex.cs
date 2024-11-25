@@ -39,13 +39,13 @@ namespace ConnnectToSql2
             return sexes;
         }
 
-        public void InsertSex(string label)
+        public void InsertSex(Sex sex)
         {
             string sql = "INSERT INTO sexes(label) VALUES (@label)";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
 
             // Add parameters with values
-            cmd.Parameters.AddWithValue("@label", label);
+            cmd.Parameters.AddWithValue("@label", sex.Label);
 
             try
             {
@@ -57,14 +57,14 @@ namespace ConnnectToSql2
             }
         }
 
-        public void UpdateSexbyId(int id, string label)
+        public void UpdateSexById(Sex sex)
         {
             string sql = "UPDATE sexes SET label=@label WHERE sex_id=@id";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection.cn);
 
             // Add parameters with values
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@label", label);
+            cmd.Parameters.AddWithValue("@id", sex.SexId);
+            cmd.Parameters.AddWithValue("@label", sex.Label);
 
             try
             {
